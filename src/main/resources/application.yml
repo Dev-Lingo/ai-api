@@ -1,0 +1,34 @@
+server:
+  port: ${PORT}
+spring:
+#  web:
+#    resources:
+#      static-locations: file:///Users/bm/intellijProjects/ollama-embedding-test/src/main/resources/static/
+  thymeleaf:
+#    prefix: file:///Users/bm/intellijProjects/ollama-embedding-test/src/main/resources/templates/
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+  r2dbc:
+    url: r2dbc:pool:postgres://${DB_HOST}:${DB_PORT}/${DB_SCHEMA} # schema ??? webflux? ???
+    username: ${DB_USER:postgres}
+    password: ${DB_PASS:password}
+  ai:
+    ollama:
+      base-url: ${OLLAMA_ENDPOINT}
+  application:
+    name: ollama-embedding-server
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${EUREKA_HOST}:${EUREKA_PORT}/eureka/
+
+logging:
+  file:
+    path: ./logs
+  level:
+    org.springframework.r2dbc.core: debug
+    org.springframework.r2dbc: debug
+    org.springframework.web.client: info
+
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--        <link rel="stylesheet" th:href="@{/css/tailwind.css}">-->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+
+</head>
+<!--<script th:src="@{/js/chart.js}"></script>-->
+
+<!--<script src="https://cdn.amcharts.com/lib/5/index.js"></script>-->
+<!--<script src="https://cdn.amcharts.com/lib/5/hierarchy.js"></script>-->
+<!--<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>-->
+
+<script id="project-list-li" type="text/html">
+    <li class="flex-grow text-white px-3 py-9 text-3xl">
+        test
+    </li>
+</script>
+<body class="bg-neutral-800 w-screen h-screen flex flex-col min-w-[580px] p-4">
+<div>
+    <label>
+        <select id="project-selector" class="p-2" onchange="projectOnSelected(this)">
+            <option>
+            </option>
+        </select>
+        <select id="embeded-group-selector" class="p-2">
+            <option></option>
+        </select>
+
+        <button onclick="search()" class="bg-white p-2">search</button>
+    </label>
+</div>
+<div>
+    <table class="text-white border border-white">
+        <thead class="border border-white">
+        <tr>
+            <th class="w-fit">
+                {id}
+            </th>
+            <th class="w-fit">
+                {model}
+            </th>
+            <th class="w-52">
+                {value}
+            </th>
+            <th>
+                {embededData}
+            </th>
+        </tr>
+        </thead>
+        <tbody class="border border-white" id="result-table">
+
+        </tbody>
+    </table>
+</div>
+</body>
+
+<template id="row-template" type="">
+    <tr id="tr">
+        <td class="w-fit px-2">
+            {id}
+        </td>
+        <td class="w-fit px-2">
+            {model}
+        </td>
+        <td class="w-52 px-2">
+            {value}
+        </td>
+        <td>
+            {embededData}
+        </td>
+    </tr>
+</template>
+<script th:src="@{/js/config.js}"></script>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--    <link rel="stylesheet" th:href="@{/css/tailwind.css}">-->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+
+</head>
+<script th:src="@{/js/index.js}"></script>
+<script th:src="@{/js/chart.js}"></script>
+
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/hierarchy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+<body class="bg-neutral-800 w-screen h-screen flex min-w-[580px]">
+    <div class="w-full flex flex-col justify-center absolute z-10">
+        <div class="flex justify-between">
+            <div class="flex">
+                <div class="flex p-1 justify-between bg-indigo-500 w-fit px-4">
+                    <label class="">
+                        <select id="project-selector" class="bg-indigo-500 w-full" >
+                            <option></option>
+                        </select>
+                    </label>
+                </div>
+                <div class="flex p-1 justify-between bg-lime-500 w-fit px-4">
+                    <label class="">
+                        <select id="embeded-group-selector" class="bg-lime-500 w-full" >
+                        </select>
+                    </label>
+                </div>
+                <div class="flex p-1 justify-between bg-yellow-500 w-fit px-4">
+                    <label class="">
+                        <select id="models-selector" class="bg-yellow-500 w-full" >
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <label class="">
+                    <button class="flex p-1 justify-between bg-zinc-200 w-fit px-5" onclick="resizeSearchBar()">
+                        ㅡ
+                    </button>
+            </label>
+        </div>
+        <div class="w-full flex bg-zinc-700 shadow-xl p-4 rounded-b-xl h-20">
+            <label class="flex flex-col flex-grow mr-10">
+                <input id="search-input" class="bg-zinc-100 rounded-md flex-grow px-7 text-xl h-full"/>
+            </label>
+            <label class="flex flex-col aspect-square mr-10 h-full">
+                <input type="number" id="search-limit" class="bg-zinc-100 h-full rounded-md flex-grow w-16 text-xl text-center" value="10"/>
+            </label>
+            <button id="search-btn" class="bg-zinc-100 rounded-md px-3 aspect-square flex justify-center h-full items-center">
+                <span class="text-lg">
+                    ⏎
+                </span>
+            </button>
+        </div>
+
+    </div>
+    <div id="chartdiv" class="h-screen w-screen flex-grow border-white ">
+
+    </div>
+</body>
+<script>
+
+</script>
+</html>

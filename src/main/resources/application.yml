@@ -1,5 +1,5 @@
 server:
-  port: ${PORT}
+  port: ${PORT:8080}
 spring:
 #  web:
 #    resources:
@@ -10,18 +10,18 @@ spring:
     suffix: .html
     cache: false
   r2dbc:
-    url: r2dbc:pool:postgres://${DB_HOST}:${DB_PORT}/${DB_SCHEMA} # schema ??? webflux? ???
+    url: r2dbc:pool:postgres://${DB_HOST:192.168.0.20}:${DB_PORT:5432}/${DB_SCHEMA:ollama-embedding-test} # schema ??? webflux? ???
     username: ${DB_USER:postgres}
     password: ${DB_PASS:password}
   ai:
     ollama:
-      base-url: ${OLLAMA_ENDPOINT}
+      base-url: ${OLLAMA_ENDPOINT:http://192.168.0.4:11434}
   application:
     name: ollama-embedding-server
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://${EUREKA_HOST}:${EUREKA_PORT}/eureka/
+      defaultZone: http://${EUREKA_HOST:192.168.0.24}:${EUREKA_PORT:8081}/eureka/
 
 logging:
   file:

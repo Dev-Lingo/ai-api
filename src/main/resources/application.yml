@@ -1,9 +1,9 @@
 server:
   port: ${PORT:8080}
-  servlet:
-    context-path: ai
 spring:
-#  web:
+  webflux:
+    base-path: /ai
+  #  web:
 #    resources:
 #      static-locations: file:///Users/bm/intellijProjects/ollama-embedding-test/src/main/resources/static/
   thymeleaf:
